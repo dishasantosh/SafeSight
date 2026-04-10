@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glasses Option 2: Sleek Minimal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1E3450 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .showcase {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .title {
+      color: #E8E2D8;
+      margin-bottom: 3rem;
+    }
+
+    .title h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .title p {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.6);
+    }
+
+    .glasses-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      filter: drop-shadow(0 20px 60px rgba(74, 155, 184, 0.3));
+    }
+
+    .scan-line {
+      animation: scanAnimation 3s ease-in-out infinite;
+    }
+
+    @keyframes scanAnimation {
+      0%, 100% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="showcase">
+    <div class="title">
+      <h1>Glasses Option 2: Sleek Minimal</h1>
+      <p>Ultra-thin frames with integrated tech</p>
+    </div>
+    
+    <div class="glasses-container">
+      <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gradients -->
+          <linearGradient id="metalFrame" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5AACC8"/>
+            <stop offset="50%" style="stop-color:#4A9BB8"/>
+            <stop offset="100%" style="stop-color:#3A8BA8"/>
+          </linearGradient>
+
+          <radialGradient id="cameraActive">
+            <stop offset="0%" style="stop-color:#7BBDD0"/>
+            <stop offset="100%" style="stop-color:#4A9BB8"/>
+          </radialGradient>
+
+          <linearGradient id="speakerMesh" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#D4B57E"/>
+            <stop offset="100%" style="stop-color:#C9A96E"/>
+          </linearGradient>
+        </defs>
+
+        <!-- LEFT FRAME -->
+        <g id="left-frame">
+          <!-- Main frame - wayfarer style -->
+          <path d="M 120 160 L 120 260 Q 120 280 140 280 L 280 280 Q 300 280 300 260 L 300 160 Q 300 140 280 140 L 140 140 Q 120 140 120 160 Z"
+                fill="none" stroke="url(#metalFrame)" stroke-width="5"/>
+          
+          <!-- Lens -->
+          <rect x="127" y="147" width="166" height="126" rx="8" 
+                fill="rgba(74,155,184,0.08)"/>
+          
+          <!-- Subtle reflection -->
+          <ellipse cx="160" cy="175" rx="35" ry="20" fill="white" opacity="0.06"/>
+          
+          <!-- DUAL CAMERA ARRAY - LEFT -->
+          <g id="left-cameras">
+            <!-- Camera module housing -->
+            <rect x="140" y="125" width="60" height="10" rx="5" 
+                  fill="#1E3450" stroke="url(#metalFrame)" stroke-width="1"/>
+            
+            <!-- Main ToF Camera -->
+            <circle cx="160" cy="130" r="4" fill="#0A0F14"/>
+            <circle cx="160" cy="130" r="2.5" fill="url(#cameraActive)">
+              <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Secondary depth camera -->
+            <circle cx="180" cy="130" r="3" fill="#0A0F14"/>
+            <circle cx="180" cy="130" r="1.5" fill="#4A9BB8" opacity="0.7"/>
+            
+            <!-- Status LED -->
+            <circle cx="192" cy="130" r="1.5" fill="#4A9BB8">
+              <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </g>
+
+        <!-- RIGHT FRAME -->
+        <g id="right-frame">
+          <!-- Main frame -->
+          <path d="M 600 160 L 600 260 Q 600 280 620 280 L 760 280 Q 780 280 780 260 L 780 160 Q 780 140 760 140 L 620 140 Q 600 140 600 160 Z"
+                fill="none" stroke="url(#metalFrame)" stroke-width="5"/>
+          
+          <!-- Lens -->
+          <rect x="607" y="147" width="166" height="126" rx="8" 
+                fill="rgba(74,155,184,0.08)"/>
+          
+          <!-- Subtle reflection -->
+          <ellipse cx="740" cy="175" rx="35" ry="20" fill="white" opacity="0.06"/>
+          
+          <!-- DUAL CAMERA ARRAY - RIGHT -->
+          <g id="right-cameras">
+            <!-- Camera module housing -->
+            <rect x="700" y="125" width="60" height="10" rx="5" 
+                  fill="#1E3450" stroke="url(#metalFrame)" stroke-width="1"/>
+            
+            <!-- Main ToF Camera -->
+            <circle cx="720" cy="130" r="4" fill="#0A0F14"/>
+            <circle cx="720" cy="130" r="2.5" fill="url(#cameraActive)">
+              <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Secondary depth camera -->
+            <circle cx="740" cy="130" r="3" fill="#0A0F14"/>
+            <circle cx="740" cy="130" r="1.5" fill="#4A9BB8" opacity="0.7"/>
+            
+            <!-- Status LED -->
+            <circle cx="752" cy="130" r="1.5" fill="#4A9BB8">
+              <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </g>
+
+        <!-- BRIDGE -->
+        <g id="bridge">
+          <!-- Upper bridge -->
+          <path d="M 300 170 Q 370 165 450 165 Q 530 165 600 170" 
+                stroke="url(#metalFrame)" stroke-width="4" fill="none" stroke-linecap="round"/>
+          
+          <!-- Nose pads -->
+          <ellipse cx="340" cy="190" rx="8" ry="16" fill="rgba(74,155,184,0.3)"/>
+          <ellipse cx="560" cy="190" rx="8" ry="16" fill="rgba(74,155,184,0.3)"/>
+          
+          <!-- CENTER SENSOR CLUSTER -->
+          <g id="center-sensors">
+            <!-- Sensor housing -->
+            <rect x="430" y="155" width="40" height="12" rx="6" 
+                  fill="#1E3450" stroke="url(#speakerMesh)" stroke-width="1.2"/>
+            
+            <!-- GPS antenna -->
+            <rect x="440" y="159" width="6" height="4" rx="1" fill="#C9A96E" opacity="0.8"/>
+            <path d="M 443 156 L 443 159" stroke="#C9A96E" stroke-width="1" opacity="0.6"/>
+            
+            <!-- IMU sensor -->
+            <rect x="450" y="159" width="5" height="4" rx="1" fill="#4A9BB8" opacity="0.8" class="scan-line"/>
+            
+            <!-- Accelerometer dots -->
+            <circle cx="460" cy="161" r="1" fill="#C9A96E" opacity="0.7"/>
+            <circle cx="463" cy="161" r="1" fill="#C9A96E" opacity="0.7"/>
+          </g>
+        </g>
+
+        <!-- LEFT TEMPLE -->
+        <g id="left-temple">
+          <!-- Temple arm -->
+          <path d="M 120 200 L 60 200 Q 35 200 25 205 L 18 225" 
+                stroke="url(#metalFrame)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          
+          <!-- Hinge detail -->
+          <circle cx="120" cy="200" r="5" fill="#2C5F7C" stroke="url(#metalFrame)" stroke-width="1.2"/>
+          <circle cx="120" cy="200" r="2" fill="#4A9BB8"/>
+          
+          <!-- BONE CONDUCTION SPEAKER - LEFT (Sleek design) -->
+          <g id="left-speaker">
+            <!-- Speaker pad -->
+            <ellipse cx="22" cy="220" rx="12" ry="20" 
+                     fill="url(#speakerMesh)" stroke="#C9A96E" stroke-width="1.5"/>
+            
+            <!-- Mesh pattern -->
+            <line x1="16" y1="208" x2="28" y2="208" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="212" x2="28" y2="212" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="216" x2="28" y2="216" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="220" x2="28" y2="220" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="224" x2="28" y2="224" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="228" x2="28" y2="228" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="16" y1="232" x2="28" y2="232" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            
+            <!-- Transducer -->
+            <circle cx="22" cy="220" r="4" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.4">
+              <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </g>
+
+        <!-- RIGHT TEMPLE -->
+        <g id="right-temple">
+          <!-- Temple arm -->
+          <path d="M 780 200 L 840 200 Q 865 200 875 205 L 882 225" 
+                stroke="url(#metalFrame)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+          
+          <!-- Hinge detail -->
+          <circle cx="780" cy="200" r="5" fill="#2C5F7C" stroke="url(#metalFrame)" stroke-width="1.2"/>
+          <circle cx="780" cy="200" r="2" fill="#4A9BB8"/>
+          
+          <!-- BONE CONDUCTION SPEAKER - RIGHT (Sleek design) -->
+          <g id="right-speaker">
+            <!-- Speaker pad -->
+            <ellipse cx="878" cy="220" rx="12" ry="20" 
+                     fill="url(#speakerMesh)" stroke="#C9A96E" stroke-width="1.5"/>
+            
+            <!-- Mesh pattern -->
+            <line x1="872" y1="208" x2="884" y2="208" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="212" x2="884" y2="212" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="216" x2="884" y2="216" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="220" x2="884" y2="220" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="224" x2="884" y2="224" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="228" x2="884" y2="228" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            <line x1="872" y1="232" x2="884" y2="232" stroke="#A88850" stroke-width="0.5" opacity="0.6"/>
+            
+            <!-- Transducer -->
+            <circle cx="878" cy="220" r="4" fill="none" stroke="#C9A96E" stroke-width="1" opacity="0.4">
+              <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+        </g>
+
+        <!-- Component Legend -->
+        <g id="legend" transform="translate(300, 320)">
+          <text x="0" y="0" font-size="11" fill="#E8E2D8" font-weight="500">Tech Features:</text>
+          <circle cx="10" cy="15" r="3" fill="#4A9BB8"/>
+          <text x="20" y="18" font-size="9" fill="rgba(232,226,216,0.7)">Dual ToF Camera Array</text>
+          <circle cx="10" cy="30" r="3" fill="#C9A96E"/>
+          <text x="20" y="33" font-size="9" fill="rgba(232,226,216,0.7)">Bone Conduction Transducers</text>
+          <rect x="8" y="40" width="6" height="6" rx="1" fill="#C9A96E"/>
+          <text x="20" y="48" font-size="9" fill="rgba(232,226,216,0.7)">GPS + 9-axis IMU</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+/* SafeSight · tokens.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy:        #0D1B2A;
+  --navy-mid:    #112031;
+  --navy-card:   #162840;
+  --navy-raised: #1E3450;
+  --navy-border: rgba(255,255,255,0.09);
+  --navy-hover:  rgba(255,255,255,0.05);
+  --gold:        #C9A96E;
+  --gold-light:  #E2C99A;
+  --gold-dim:    rgba(201,169,110,0.18);
+  --teal:        #4A9BB8;
+  --teal-light:  #7BBDD0;
+  --teal-dim:    rgba(74,155,184,0.18);
+  --cream:       #E8E2D8;
+  --muted:       rgba(232,226,216,0.55);
+  --subtle:      rgba(232,226,216,0.28);
+  --green:       #5BAD8A; --green-dim: rgba(91,173,138,0.18);
+  --red:         #C0554A; --red-dim:   rgba(192,85,74,0.18);
+  --amber:       #C4934A; --amber-dim: rgba(196,147,74,0.18);
+  --r-sm:10px; --r-md:16px; --r-lg:22px; --r-xl:30px;
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.4);
+  --ease:        cubic-bezier(0.4,0,0.2,1);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+  --sidebar-w:   230px;
+  --topbar-h:    62px;
+}
+
+/* ── Light mode (default on landing, togglable in app) ── */
+body {
+  --navy:        #F0F4F8;
+  --navy-mid:    #E2EAF2;
+  --navy-card:   #FFFFFF;
+  --navy-raised: #EAF0F6;
+  --navy-border: rgba(0,0,0,0.09);
+  --navy-hover:  rgba(0,0,0,0.04);
+  --cream:       #1E2D3D;
+  --muted:       rgba(30,45,61,0.60);
+  --subtle:      rgba(30,45,61,0.35);
+  --shadow-card: 0 4px 28px rgba(0,0,0,0.10);
+}
+body::after {
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background:radial-gradient(ellipse 60% 50% at 80% 10%,rgba(74,155,184,0.05),transparent 60%),
+             radial-gradient(ellipse 50% 60% at 10% 90%,rgba(201,169,110,0.04),transparent 60%);
+}
+
+/* ── Dark mode ── */
+body.dark {
+  --navy:        #0D1B2A;
+  --navy-mid:    #112031;
+  --navy-card:   #162840;
+  --navy-raised: #1E3450;
+  --navy-border: rgba(255,255,255,0.09);
+  --navy-hover:  rgba(255,255,255,0.05);
+  --cream:       #E8E2D8;
+  --muted:       rgba(232,226,216,0.55);
+  --subtle:      rgba(232,226,216,0.28);
+  --shadow-card: 0 8px 40px rgba(0,0,0,0.4);
+}
+body.dark .topbar      { background: rgba(13,27,42,0.90); }
+body.dark .sidebar     { background: rgba(17,32,49,0.70); }
+body.dark #role-screen {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 80%,rgba(74,155,184,0.07),transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 20%,rgba(201,169,110,0.08),transparent 60%),
+    #0D1B2A;
+}
+body.dark .map-wrap { filter: none; }
+body.dark body::after { opacity: 0; }

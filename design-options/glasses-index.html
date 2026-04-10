@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeSight - Glasses Design Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1E3450 100%);
+      min-height: 100vh;
+      color: #E8E2D8;
+      padding: 3rem 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header em {
+      color: #4A9BB8;
+      font-style: normal;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: rgba(232, 226, 216, 0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.5);
+      margin-top: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #E8E2D8;
+      margin: 3rem 0 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(74, 155, 184, 0.2);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .option-card {
+      background: rgba(22, 40, 64, 0.5);
+      border: 1px solid rgba(74, 155, 184, 0.2);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(74, 155, 184, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .option-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(74, 155, 184, 0.5);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    }
+
+    .option-card:hover::before {
+      opacity: 1;
+    }
+
+    .option-number {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.2), rgba(74, 155, 184, 0.05));
+      border: 1px solid rgba(74, 155, 184, 0.3);
+      border-radius: 12px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #4A9BB8;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .option-title {
+      font-size: 1.4rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #E8E2D8;
+    }
+
+    .option-desc {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.6);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-list li {
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: rgba(232, 226, 216, 0.7);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .feature-list li::before {
+      content: '●';
+      color: #4A9BB8;
+      font-size: 0.6rem;
+      margin-top: 0.35rem;
+    }
+
+    .preview-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.2), rgba(74, 155, 184, 0.05));
+      border: 1px solid rgba(74, 155, 184, 0.3);
+      color: #E8E2D8;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .preview-link:hover {
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.3), rgba(74, 155, 184, 0.1));
+      border-color: rgba(74, 155, 184, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .best-for {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(74, 155, 184, 0.15);
+      font-size: 0.75rem;
+      color: rgba(232, 226, 216, 0.5);
+      font-style: italic;
+    }
+
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(232, 226, 216, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transition: color 0.3s;
+    }
+
+    .nav-back:hover {
+      color: #4A9BB8;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav-back">← Back to Feature Indicators</a>
+    
+    <div class="header">
+      <h1>Safe<em>Sight</em> Glasses Designs</h1>
+      <p>Realistic glasses with visible tech components</p>
+      <p class="subtitle">Click any option to see the detailed view</p>
+    </div>
+
+    <div class="section-title">Glasses Design Options</div>
+
+    <div class="gallery">
+      <!-- Option 1: Modern Tech -->
+      <div class="option-card">
+        <span class="option-number">GLASSES 01</span>
+        <h2 class="option-title">Modern Tech</h2>
+        <p class="option-desc">Sleek design with clearly visible tech components and status indicators</p>
+        <ul class="feature-list">
+          <li>Time-of-Flight camera modules with LED indicators</li>
+          <li>Bone conduction speakers with grille detail</li>
+          <li>GPS + IMU sensor on bridge</li>
+          <li>Component labels and pulsing animations</li>
+          <li>Clean, modern aesthetic</li>
+        </ul>
+        <a href="glasses-option1-modern.html" class="preview-link">
+          View Full Design →
+        </a>
+        <p class="best-for">Best for: Clear component visibility, educational purposes</p>
+      </div>
+
+      <!-- Option 2: Sleek Minimal -->
+      <div class="option-card">
+        <span class="option-number">GLASSES 02</span>
+        <h2 class="option-title">Sleek Minimal</h2>
+        <p class="option-desc">Ultra-thin wayfarer-style frames with dual camera arrays and mesh speaker design</p>
+        <ul class="feature-list">
+          <li>Dual ToF camera arrays (primary + depth + RGB)</li>
+          <li>Sleek mesh speaker transducers</li>
+          <li>Integrated sensor cluster on bridge</li>
+          <li>Metallic gradient finish</li>
+          <li>Premium, minimalist look</li>
+        </ul>
+        <a href="glasses-option2-sleek.html" class="preview-link">
+          View Full Design →
+        </a>
+        <p class="best-for">Best for: Consumer-facing, premium aesthetic</p>
+      </div>
+
+      <!-- Option 3: Technical Detailed -->
+      <div class="option-card">
+        <span class="option-number">GLASSES 03</span>
+        <h2 class="option-title">Technical Detailed</h2>
+        <p class="option-desc">High-detail blueprint-style design showing all internal components and specifications</p>
+        <ul class="feature-list">
+          <li>Complete sensor array (ToF + RGB + IR illuminator)</li>
+          <li>Detailed bone conduction transducer internals</li>
+          <li>Battery indicators on temples</li>
+          <li>GPS, IMU, gyroscope, magnetometer details</li>
+          <li>Dual microphones for noise canceling</li>
+          <li>Technical specifications and labels</li>
+        </ul>
+        <a href="glasses-option3-technical.html" class="preview-link">
+          View Full Design →
+        </a>
+        <p class="best-for">Best for: Technical presentations, investor pitches, detailed specs</p>
+      </div>
+    </div>
+
+    <div class="header" style="margin-top: 4rem;">
+      <p style="font-size: 1rem; color: rgba(232, 226, 216, 0.6);">
+        All designs feature:<br>
+        ✓ Time-of-Flight depth cameras &nbsp;•&nbsp; ✓ Bone conduction audio speakers &nbsp;•&nbsp; ✓ GPS + IMU sensors &nbsp;•&nbsp; ✓ Animated components
+      </p>
+    </div>
+  </div>
+</body>
+</html>

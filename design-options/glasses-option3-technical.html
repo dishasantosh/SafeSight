@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glasses Option 3: Technical Detailed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1E3450 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .showcase {
+      width: 100%;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .title {
+      color: #E8E2D8;
+      margin-bottom: 3rem;
+    }
+
+    .title h1 {
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+
+    .title p {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.6);
+    }
+
+    .glasses-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      filter: drop-shadow(0 20px 60px rgba(74, 155, 184, 0.3));
+    }
+
+    .power-pulse {
+      animation: powerPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes powerPulse {
+      0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="showcase">
+    <div class="title">
+      <h1>Glasses Option 3: Technical Detailed</h1>
+      <p>High-detail design with all components visible</p>
+    </div>
+    
+    <div class="glasses-container">
+      <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Gradients -->
+          <linearGradient id="premiumFrame" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5AACC8"/>
+            <stop offset="50%" style="stop-color:#4A9BB8"/>
+            <stop offset="100%" style="stop-color:#3A8BA8"/>
+          </linearGradient>
+
+          <radialGradient id="activeSensor">
+            <stop offset="0%" style="stop-color:#7BBDD0;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#4A9BB8;stop-opacity:0.3"/>
+          </radialGradient>
+
+          <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E2C99A"/>
+            <stop offset="100%" style="stop-color:#C9A96E"/>
+          </linearGradient>
+
+          <!-- Filter for glow effect -->
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- LEFT FRAME -->
+        <g id="left-frame">
+          <!-- Main frame with inner detail -->
+          <rect x="130" y="170" width="220" height="140" rx="14" 
+                fill="none" stroke="url(#premiumFrame)" stroke-width="8"/>
+          <rect x="137" y="177" width="206" height="126" rx="11" 
+                fill="rgba(74,155,184,0.05)" stroke="#4A9BB8" stroke-width="1" opacity="0.5"/>
+          
+          <!-- Lens with gradient -->
+          <rect x="144" y="184" width="192" height="112" rx="9" 
+                fill="rgba(74,155,184,0.12)"/>
+          
+          <!-- Reflection highlights -->
+          <ellipse cx="190" cy="210" rx="50" ry="30" fill="white" opacity="0.06"/>
+          <ellipse cx="300" cy="270" rx="30" ry="20" fill="white" opacity="0.04"/>
+          
+          <!-- CAMERA MODULE - LEFT (Advanced) -->
+          <g id="left-camera-module">
+            <!-- Main camera housing -->
+            <rect x="155" y="145" width="70" height="20" rx="6" 
+                  fill="#1E3450" stroke="url(#premiumFrame)" stroke-width="2"/>
+            
+            <!-- Primary ToF Camera -->
+            <g id="primary-camera-left">
+              <circle cx="175" cy="155" r="9" fill="#0A0F14" stroke="#4A9BB8" stroke-width="1.5"/>
+              <circle cx="175" cy="155" r="6" fill="#1E2D3D"/>
+              <circle cx="175" cy="155" r="4" fill="url(#activeSensor)" class="power-pulse" filter="url(#glow)"/>
+              <circle cx="173" cy="153" r="1.5" fill="white" opacity="0.6"/>
+            </g>
+            
+            <!-- Secondary RGB Camera -->
+            <g id="rgb-camera-left">
+              <circle cx="195" cy="155" r="6" fill="#0A0F14" stroke="#4A9BB8" stroke-width="1"/>
+              <circle cx="195" cy="155" r="3" fill="#2C5F7C"/>
+              <circle cx="194" cy="154" r="1" fill="white" opacity="0.5"/>
+            </g>
+            
+            <!-- IR Illuminator -->
+            <circle cx="210" cy="155" r="4" fill="#4A1010" stroke="#C05555" stroke-width="1"/>
+            <circle cx="210" cy="155" r="2" fill="#C05555" opacity="0.5">
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Status LEDs -->
+            <circle cx="218" cy="151" r="1.5" fill="#4A9BB8">
+              <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="218" cy="159" r="1.5" fill="#5BAD8A" opacity="0.8"/>
+            
+            <!-- Labels -->
+            <text x="190" y="138" font-size="7" fill="#4A9BB8" text-anchor="middle" opacity="0.7" font-weight="500">DEPTH ARRAY</text>
+          </g>
+
+          <!-- Microphone -->
+          <g id="left-mic">
+            <circle cx="320" cy="180" r="3" fill="#2C5F7C" stroke="#4A9BB8" stroke-width="0.8"/>
+            <circle cx="320" cy="180" r="1" fill="#4A9BB8" opacity="0.6"/>
+          </g>
+        </g>
+
+        <!-- RIGHT FRAME -->
+        <g id="right-frame">
+          <!-- Main frame with inner detail -->
+          <rect x="650" y="170" width="220" height="140" rx="14" 
+                fill="none" stroke="url(#premiumFrame)" stroke-width="8"/>
+          <rect x="657" y="177" width="206" height="126" rx="11" 
+                fill="rgba(74,155,184,0.05)" stroke="#4A9BB8" stroke-width="1" opacity="0.5"/>
+          
+          <!-- Lens with gradient -->
+          <rect x="664" y="184" width="192" height="112" rx="9" 
+                fill="rgba(74,155,184,0.12)"/>
+          
+          <!-- Reflection highlights -->
+          <ellipse cx="710" cy="210" rx="50" ry="30" fill="white" opacity="0.06"/>
+          <ellipse cx="820" cy="270" rx="30" ry="20" fill="white" opacity="0.04"/>
+          
+          <!-- CAMERA MODULE - RIGHT (Advanced) -->
+          <g id="right-camera-module">
+            <!-- Main camera housing -->
+            <rect x="775" y="145" width="70" height="20" rx="6" 
+                  fill="#1E3450" stroke="url(#premiumFrame)" stroke-width="2"/>
+            
+            <!-- Primary ToF Camera -->
+            <g id="primary-camera-right">
+              <circle cx="795" cy="155" r="9" fill="#0A0F14" stroke="#4A9BB8" stroke-width="1.5"/>
+              <circle cx="795" cy="155" r="6" fill="#1E2D3D"/>
+              <circle cx="795" cy="155" r="4" fill="url(#activeSensor)" class="power-pulse" filter="url(#glow)"/>
+              <circle cx="793" cy="153" r="1.5" fill="white" opacity="0.6"/>
+            </g>
+            
+            <!-- Secondary RGB Camera -->
+            <g id="rgb-camera-right">
+              <circle cx="815" cy="155" r="6" fill="#0A0F14" stroke="#4A9BB8" stroke-width="1"/>
+              <circle cx="815" cy="155" r="3" fill="#2C5F7C"/>
+              <circle cx="814" cy="154" r="1" fill="white" opacity="0.5"/>
+            </g>
+            
+            <!-- IR Illuminator -->
+            <circle cx="830" cy="155" r="4" fill="#4A1010" stroke="#C05555" stroke-width="1"/>
+            <circle cx="830" cy="155" r="2" fill="#C05555" opacity="0.5">
+              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- Status LEDs -->
+            <circle cx="838" cy="151" r="1.5" fill="#4A9BB8">
+              <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="838" cy="159" r="1.5" fill="#5BAD8A" opacity="0.8"/>
+            
+            <!-- Labels -->
+            <text x="810" y="138" font-size="7" fill="#4A9BB8" text-anchor="middle" opacity="0.7" font-weight="500">DEPTH ARRAY</text>
+          </g>
+
+          <!-- Microphone -->
+          <g id="right-mic">
+            <circle cx="680" cy="180" r="3" fill="#2C5F7C" stroke="#4A9BB8" stroke-width="0.8"/>
+            <circle cx="680" cy="180" r="1" fill="#4A9BB8" opacity="0.6"/>
+          </g>
+        </g>
+
+        <!-- BRIDGE -->
+        <g id="bridge">
+          <!-- Upper bridge connector -->
+          <path d="M 350 210 Q 420 205 500 205 Q 580 205 650 210" 
+                stroke="url(#premiumFrame)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          
+          <!-- Nose pads with detail -->
+          <ellipse cx="390" cy="230" rx="10" ry="20" fill="rgba(74,155,184,0.3)" stroke="#4A9BB8" stroke-width="1"/>
+          <ellipse cx="610" cy="230" rx="10" ry="20" fill="rgba(74,155,184,0.3)" stroke="#4A9BB8" stroke-width="1"/>
+          
+          <!-- CENTER SENSOR CLUSTER (Detailed) -->
+          <g id="center-sensor-cluster">
+            <!-- Main sensor housing -->
+            <rect x="470" y="192" width="60" height="18" rx="8" 
+                  fill="#1E3450" stroke="url(#goldAccent)" stroke-width="2"/>
+            
+            <!-- GPS Module -->
+            <rect x="478" y="197" width="12" height="8" rx="2" fill="url(#goldAccent)"/>
+            <line x1="484" y1="194" x2="484" y2="197" stroke="#C9A96E" stroke-width="1.5"/>
+            <circle cx="484" cy="192" r="1.5" fill="#C9A96E" class="power-pulse"/>
+            <text x="484" y="189" font-size="5" fill="#C9A96E" text-anchor="middle" opacity="0.7">GPS</text>
+            
+            <!-- IMU Chip -->
+            <rect x="495" y="197" width="10" height="8" rx="1" fill="#4A9BB8" opacity="0.8"/>
+            <rect x="497" y="199" width="6" height="4" fill="#2C5F7C"/>
+            <text x="500" y="189" font-size="5" fill="#4A9BB8" text-anchor="middle" opacity="0.7">IMU</text>
+            
+            <!-- Gyroscope -->
+            <circle cx="514" cy="201" r="3" fill="none" stroke="#C9A96E" stroke-width="1"/>
+            <circle cx="514" cy="201" r="1" fill="#C9A96E" opacity="0.8" class="power-pulse"/>
+            
+            <!-- Magnetometer -->
+            <circle cx="522" cy="201" r="2" fill="#4A9BB8" opacity="0.6"/>
+          </g>
+        </g>
+
+        <!-- LEFT TEMPLE ARM -->
+        <g id="left-temple">
+          <!-- Temple structure -->
+          <path d="M 130 230 L 65 230 Q 38 230 25 236 L 18 255" 
+                stroke="url(#premiumFrame)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          
+          <!-- Hinge mechanism -->
+          <circle cx="130" cy="230" r="7" fill="#2C5F7C" stroke="url(#premiumFrame)" stroke-width="1.5"/>
+          <circle cx="130" cy="230" r="3" fill="#4A9BB8"/>
+          <circle cx="130" cy="230" r="1.5" fill="white" opacity="0.5"/>
+          
+          <!-- Battery indicator -->
+          <rect x="100" y="225" width="20" height="10" rx="2" fill="none" stroke="#4A9BB8" stroke-width="1" opacity="0.5"/>
+          <rect x="102" y="227" width="14" height="6" fill="#5BAD8A" opacity="0.6"/>
+          <rect x="120" y="228" width="2" height="4" fill="#4A9BB8" opacity="0.5"/>
+          
+          <!-- BONE CONDUCTION SPEAKER - LEFT (Detailed) -->
+          <g id="left-speaker-advanced">
+            <!-- Speaker housing -->
+            <rect x="12" y="245" width="22" height="38" rx="11" 
+                  fill="url(#goldAccent)" stroke="#C9A96E" stroke-width="2"/>
+            
+            <!-- Transducer coil representation -->
+            <circle cx="23" cy="264" r="8" fill="none" stroke="#A88850" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="23" cy="264" r="5" fill="none" stroke="#A88850" stroke-width="1" opacity="0.5"/>
+            <circle cx="23" cy="264" r="3" fill="#C9A96E" opacity="0.4" class="power-pulse"/>
+            
+            <!-- Vibration dampeners -->
+            <ellipse cx="15" cy="250" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="31" cy="250" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="15" cy="278" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="31" cy="278" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            
+            <!-- Mesh grille -->
+            <line x1="17" y1="253" x2="29" y2="253" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="257" x2="29" y2="257" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="261" x2="29" y2="261" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="265" x2="29" y2="265" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="269" x2="29" y2="269" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="273" x2="29" y2="273" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="17" y1="277" x2="29" y2="277" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            
+            <!-- Contact point -->
+            <circle cx="23" cy="283" r="2" fill="#D4B57E"/>
+            
+            <!-- Label -->
+            <text x="23" y="295" font-size="6" fill="#C9A96E" text-anchor="middle" opacity="0.7" font-weight="500">BC AUDIO</text>
+          </g>
+        </g>
+
+        <!-- RIGHT TEMPLE ARM -->
+        <g id="right-temple">
+          <!-- Temple structure -->
+          <path d="M 870 230 L 935 230 Q 962 230 975 236 L 982 255" 
+                stroke="url(#premiumFrame)" stroke-width="7" fill="none" stroke-linecap="round"/>
+          
+          <!-- Hinge mechanism -->
+          <circle cx="870" cy="230" r="7" fill="#2C5F7C" stroke="url(#premiumFrame)" stroke-width="1.5"/>
+          <circle cx="870" cy="230" r="3" fill="#4A9BB8"/>
+          <circle cx="870" cy="230" r="1.5" fill="white" opacity="0.5"/>
+          
+          <!-- Battery indicator -->
+          <rect x="880" y="225" width="20" height="10" rx="2" fill="none" stroke="#4A9BB8" stroke-width="1" opacity="0.5"/>
+          <rect x="882" y="227" width="14" height="6" fill="#5BAD8A" opacity="0.6"/>
+          <rect x="896" y="228" width="2" height="4" fill="#4A9BB8" opacity="0.5"/>
+          
+          <!-- BONE CONDUCTION SPEAKER - RIGHT (Detailed) -->
+          <g id="right-speaker-advanced">
+            <!-- Speaker housing -->
+            <rect x="966" y="245" width="22" height="38" rx="11" 
+                  fill="url(#goldAccent)" stroke="#C9A96E" stroke-width="2"/>
+            
+            <!-- Transducer coil representation -->
+            <circle cx="977" cy="264" r="8" fill="none" stroke="#A88850" stroke-width="1.5" opacity="0.7"/>
+            <circle cx="977" cy="264" r="5" fill="none" stroke="#A88850" stroke-width="1" opacity="0.5"/>
+            <circle cx="977" cy="264" r="3" fill="#C9A96E" opacity="0.4" class="power-pulse"/>
+            
+            <!-- Vibration dampeners -->
+            <ellipse cx="969" cy="250" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="985" cy="250" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="969" cy="278" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            <ellipse cx="985" cy="278" rx="2" ry="1" fill="#A88850" opacity="0.6"/>
+            
+            <!-- Mesh grille -->
+            <line x1="971" y1="253" x2="983" y2="253" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="257" x2="983" y2="257" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="261" x2="983" y2="261" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="265" x2="983" y2="265" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="269" x2="983" y2="269" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="273" x2="983" y2="273" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            <line x1="971" y1="277" x2="983" y2="277" stroke="#A88850" stroke-width="0.6" opacity="0.5"/>
+            
+            <!-- Contact point -->
+            <circle cx="977" cy="283" r="2" fill="#D4B57E"/>
+            
+            <!-- Label -->
+            <text x="977" y="295" font-size="6" fill="#C9A96E" text-anchor="middle" opacity="0.7" font-weight="500">BC AUDIO</text>
+          </g>
+        </g>
+
+        <!-- Detailed Component Legend -->
+        <g id="detailed-legend" transform="translate(200, 360)">
+          <text x="0" y="0" font-size="12" fill="#E8E2D8" font-weight="600">Component Specifications:</text>
+          
+          <g transform="translate(0, 20)">
+            <circle cx="8" cy="0" r="4" fill="#4A9BB8"/>
+            <text x="20" y="4" font-size="9" fill="rgba(232,226,216,0.8)">ToF Depth Cameras (Primary + RGB + IR)</text>
+          </g>
+          
+          <g transform="translate(0, 35)">
+            <rect x="5" y="-4" width="8" height="8" rx="2" fill="#C9A96E"/>
+            <text x="20" y="4" font-size="9" fill="rgba(232,226,216,0.8)">GPS + 9-axis IMU (Gyro + Accel + Mag)</text>
+          </g>
+          
+          <g transform="translate(300, 20)">
+            <ellipse cx="8" cy="0" rx="5" ry="8" fill="url(#goldAccent)"/>
+            <text x="20" y="4" font-size="9" fill="rgba(232,226,216,0.8)">Bone Conduction Transducers</text>
+          </g>
+          
+          <g transform="translate(300, 35)">
+            <circle cx="8" cy="0" r="2" fill="#4A9BB8"/>
+            <text x="20" y="4" font-size="9" fill="rgba(232,226,216,0.8)">Dual Microphones (Noise Canceling)</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

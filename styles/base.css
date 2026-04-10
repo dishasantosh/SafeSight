@@ -1,0 +1,25 @@
+/* SafeSight · base.css */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--navy);color:var(--cream);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s}
+::selection{background:var(--gold-dim);color:var(--gold)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--navy-raised);border-radius:2px}
+
+/* ── Keyframes ───────────────────────────────── */
+@keyframes fadeUp    { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn    { from{opacity:0} to{opacity:1} }
+@keyframes slideDown { from{opacity:0;transform:translateY(-14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes scaleIn   { from{opacity:0;transform:scale(0.93)} to{opacity:1;transform:scale(1)} }
+@keyframes pulse     { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.55)} }
+@keyframes ruleGrow  { from{width:0;opacity:0} to{width:48px;opacity:1} }
+@keyframes logoReveal{ 0%{opacity:0;letter-spacing:.3em;filter:blur(8px)} 60%{filter:blur(0)} 100%{opacity:1;letter-spacing:-.03em} }
+@keyframes logoIconSpin { 0%{transform:rotate(0deg) scale(1)} 50%{transform:rotate(180deg) scale(1.05)} 100%{transform:rotate(360deg) scale(1)} }
+@keyframes subFade   { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes cardRise  { from{opacity:0;transform:translateY(32px) scale(0.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes glowPulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,155,184,0)} 50%{box-shadow:0 0 24px 6px rgba(74,155,184,0.18)} }
+@keyframes stepReveal{ from{opacity:0;transform:translateX(-12px)} to{opacity:1;transform:translateX(0)} }
+@keyframes batteryCharge { from{width:0} to{width:82%} }
+@keyframes toastIn   { from{opacity:0;transform:translateY(16px) scale(0.95)} to{opacity:1;transform:translateY(0) scale(1)} }
+@keyframes shimmer   { 0%{background-position:-400px 0} 100%{background-position:400px 0} }

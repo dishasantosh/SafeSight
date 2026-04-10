@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeSight - Design Options Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Jost', sans-serif;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1E3450 100%);
+      min-height: 100vh;
+      color: #E8E2D8;
+      padding: 3rem 2rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .header em {
+      color: #4A9BB8;
+      font-style: normal;
+    }
+
+    .header p {
+      font-size: 1.1rem;
+      color: rgba(232, 226, 216, 0.6);
+      margin-bottom: 1rem;
+    }
+
+    .header .subtitle {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.5);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #E8E2D8;
+      margin: 3rem 0 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(74, 155, 184, 0.2);
+      text-align: center;
+    }
+
+    .category-card {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: rgba(22, 40, 64, 0.4);
+      border: 2px solid rgba(74, 155, 184, 0.3);
+      border-radius: 24px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .category-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(74, 155, 184, 0.6);
+      box-shadow: 0 20px 60px rgba(74, 155, 184, 0.2);
+      background: rgba(22, 40, 64, 0.6);
+    }
+
+    .category-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .category-title {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: #E8E2D8;
+      text-align: center;
+    }
+
+    .category-desc {
+      font-size: 1rem;
+      color: rgba(232, 226, 216, 0.7);
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .category-count {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #4A9BB8;
+      font-weight: 500;
+    }
+
+    .gallery {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .option-card {
+      background: rgba(22, 40, 64, 0.5);
+      border: 1px solid rgba(74, 155, 184, 0.2);
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .option-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(74, 155, 184, 0.1), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .option-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(74, 155, 184, 0.5);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+    }
+
+    .option-card:hover::before {
+      opacity: 1;
+    }
+
+    .option-number {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.2), rgba(74, 155, 184, 0.05));
+      border: 1px solid rgba(74, 155, 184, 0.3);
+      border-radius: 12px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4A9BB8;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .option-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: #E8E2D8;
+    }
+
+    .option-desc {
+      font-size: 0.9rem;
+      color: rgba(232, 226, 216, 0.6);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .option-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .option-features li {
+      padding: 0.5rem 0;
+      font-size: 0.85rem;
+      color: rgba(232, 226, 216, 0.7);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .option-features li::before {
+      content: '✓';
+      color: #4A9BB8;
+      font-weight: 600;
+    }
+
+    .preview-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.2), rgba(74, 155, 184, 0.05));
+      border: 1px solid rgba(74, 155, 184, 0.3);
+      color: #E8E2D8;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .preview-link:hover {
+      background: linear-gradient(135deg, rgba(74, 155, 184, 0.3), rgba(74, 155, 184, 0.1));
+      border-color: rgba(74, 155, 184, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .best-for {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(74, 155, 184, 0.15);
+      font-size: 0.75rem;
+      color: rgba(232, 226, 216, 0.5);
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Safe<em>Sight</em> Design Gallery</h1>
+    <p>Explore design options for feature indicators and glasses</p>
+    <p class="subtitle">Click on any category to see all available options</p>
+  </div>
+
+  <!-- Glasses Designs Section -->
+  <div class="section-title">🕶️ Glasses Designs</div>
+  <a href="glasses-index.html" class="category-card">
+    <div class="category-icon">🔬</div>
+    <h2 class="category-title">Realistic Glasses with Tech Components</h2>
+    <p class="category-desc">
+      Detailed SVG designs showing cameras, bone conduction speakers, GPS sensors, and all tech components
+    </p>
+    <p class="category-count">3 design options available</p>
+  </a>
+
+  <!-- Feature Indicators Section -->
+  <div class="section-title">📍 Feature Indicator Styles</div>
+
+  <div class="gallery">
+    <!-- Option 1 -->
+    <div class="option-card">
+      <span class="option-number">INDICATOR 01</span>
+      <h2 class="option-title">Minimalist Cards</h2>
+      <p class="option-desc">Clean, modern cards with subtle hover effects and gradient backgrounds</p>
+      <ul class="option-features">
+        <li>Smooth scale animations</li>
+        <li>Gradient icon backgrounds</li>
+        <li>Subtitle descriptions</li>
+        <li>Frosted glass backdrop</li>
+      </ul>
+      <a href="option1-minimalist.html" class="preview-link">
+        View Live Preview →
+      </a>
+      <p class="best-for">Best for: Professional, corporate aesthetic</p>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="option-card">
+      <span class="option-number">INDICATOR 02</span>
+      <h2 class="option-title">Glassmorphism</h2>
+      <p class="option-desc">Frosted glass effect with elegant transparency and pulsing indicators</p>
+      <ul class="option-features">
+        <li>Advanced backdrop blur</li>
+        <li>Pulsing status dots</li>
+        <li>Premium glass aesthetic</li>
+        <li>Subtle glow effects</li>
+      </ul>
+      <a href="option2-glassmorphism.html" class="preview-link">
+        View Live Preview →
+      </a>
+      <p class="best-for">Best for: Modern, premium feel</p>
+    </div>
+
+    <!-- Option 3 -->
+    <div class="option-card">
+      <span class="option-number">INDICATOR 03</span>
+      <h2 class="option-title">Floating Badges</h2>
+      <p class="option-desc">Animated badges with continuous floating motion and connection lines</p>
+      <ul class="option-features">
+        <li>Continuous float animation</li>
+        <li>Glowing icon backgrounds</li>
+        <li>Connection line indicators</li>
+        <li>Dynamic movement</li>
+      </ul>
+      <a href="option3-floating.html" class="preview-link">
+        View Live Preview →
+      </a>
+      <p class="best-for">Best for: Engaging, playful interaction</p>
+    </div>
+
+    <!-- Option 4 -->
+    <div class="option-card">
+      <span class="option-number">INDICATOR 04</span>
+      <h2 class="option-title">Connected Timeline</h2>
+      <p class="option-desc">Features connected with flowing animated paths and detailed descriptions</p>
+      <ul class="option-features">
+        <li>Flowing dashed paths</li>
+        <li>Ripple effect dots</li>
+        <li>Technical specifications</li>
+        <li>Timeline aesthetic</li>
+      </ul>
+      <a href="option4-timeline.html" class="preview-link">
+        View Live Preview →
+      </a>
+      <p class="best-for">Best for: Technical, informative presentation</p>
+    </div>
+  </div>
+</body>
+</html>

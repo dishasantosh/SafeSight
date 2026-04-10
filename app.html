@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeSight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <style>
+    /* Make topbar logo a clickable link */
+    .topbar-logo {
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.3s var(--ease);
+    }
+
+    .topbar-logo:hover {
+      opacity: 0.8;
+    }
+
+    /* Footer for app */
+    .app-footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--navy-border);
+      padding: 2rem;
+      margin-top: auto;
+    }
+
+    .app-footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .app-footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--cream);
+    }
+
+    .app-footer-logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .app-footer-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+    }
+
+    .app-footer-wordmark em {
+      color: var(--teal);
+      font-style: normal;
+    }
+
+    .app-footer-copyright {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .app-footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .app-footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s var(--ease);
+    }
+
+    .app-footer-links a:hover {
+      color: var(--teal);
+    }
+
+    @media (max-width: 768px) {
+      .app-footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body><!-- light mode by default, no .dark class -->
+
+<!-- Landing: theme toggle pill (top-right) -->
+<button class="landing-theme-toggle" onclick="toggleTheme()">
+  <span class="toggle-icon" id="landing-theme-icon">☽</span>
+  <span id="landing-theme-btn">Dark mode</span>
+</button>
+
+<!-- ═══════════════════════════════════════════
+     ROLE SELECTION
+════════════════════════════════════════════ -->
+<div id="role-screen">
+  <div class="hero">
+
+    <!-- Logo mark -->
+    <div class="logo-mark">
+      <div class="logo-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Glasses frame left -->
+          <rect x="2" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.2"/>
+          <!-- Glasses frame right -->
+          <rect x="28" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.2"/>
+          <!-- Bridge -->
+          <path d="M20 24h8" stroke="#4A9BB8" stroke-width="2.2" stroke-linecap="round"/>
+          <!-- Left temple -->
+          <path d="M2 22 Q0 22 0 20" stroke="#4A9BB8" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+          <!-- Right temple -->
+          <path d="M46 22 Q48 22 48 20" stroke="#4A9BB8" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+          <!-- Camera dot left lens -->
+          <circle cx="11" cy="24" r="4" fill="rgba(74,155,184,0.45)"/>
+          <circle cx="11" cy="24" r="2" fill="#4A9BB8"/>
+          <!-- Camera dot right lens -->
+          <circle cx="37" cy="24" r="4" fill="rgba(74,155,184,0.45)"/>
+          <circle cx="37" cy="24" r="2" fill="#4A9BB8"/>
+          <!-- Signal arc (gold) -->
+          <path d="M24 10 Q31 6 38 10" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.85"/>
+          <path d="M24 6 Q33 1 42 6" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.45"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-wordmark">Safe<em>Sight</em></div>
+    <div class="hero-rule"></div>
+    <div class="hero-sub">Smart glasses &nbsp;&middot;&nbsp; Independent navigation &nbsp;&middot;&nbsp; Safety</div>
+  </div>
+
+  <div class="role-grid">
+    <div class="role-card user" onclick="enterApp('user')">
+      <div class="role-icon-wrap">&#x1F453;</div>
+      <h2>Glasses User</h2>
+      <p>Configure your SafeSight glasses, set navigation preferences, and manage your personal safety profile.</p>
+      <div class="role-cta">Enter as User &rarr;</div>
+    </div>
+    <div class="role-card caregiver" onclick="enterApp('caregiver')">
+      <div class="role-icon-wrap">&#x1F6E1;&#xFE0F;</div>
+      <h2>Caregiver</h2>
+      <p>Monitor your loved one&#39;s real-time location, review alerts, and manage their safe zones remotely.</p>
+      <div class="role-cta">Enter as Caregiver &rarr;</div>
+    </div>
+  </div>
+
+  <!-- Footer on role selection screen -->
+  <footer style="position: absolute; bottom: 20px; width: 100%; text-align: center;">
+    <p style="font-size: 0.8rem; color: var(--muted);">
+      © 2024 SafeSight. All rights reserved.
+    </p>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     APP SHELL
+════════════════════════════════════════════ -->
+<div id="app">
+  <header class="topbar">
+    <a href="index.html" class="topbar-logo">
+      <div class="topbar-logo-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.5"/>
+          <rect x="28" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.5"/>
+          <path d="M20 24h8" stroke="#4A9BB8" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="11" cy="24" r="3.5" fill="rgba(74,155,184,0.5)"/>
+          <circle cx="11" cy="24" r="1.5" fill="#4A9BB8"/>
+          <circle cx="37" cy="24" r="3.5" fill="rgba(74,155,184,0.5)"/>
+          <circle cx="37" cy="24" r="1.5" fill="#4A9BB8"/>
+          <path d="M24 11 Q31 7 38 11" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
+        </svg>
+      </div>
+      <div class="topbar-wordmark">Safe<em>Sight</em></div>
+    </a>
+    <div class="topbar-right">
+      <span class="mode-pill" id="mode-pill"></span>
+      <button class="topbar-btn" id="theme-btn" onclick="toggleTheme()">&#x263D; Dark</button>
+      <button class="topbar-btn" onclick="switchRole()">&larr; Switch Role</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <nav class="sidebar" id="sidebar"></nav>
+    <main class="main" id="main"></main>
+  </div>
+
+  <!-- Footer for app -->
+  <footer class="app-footer">
+    <div class="app-footer-content">
+      <a href="index.html" class="app-footer-logo">
+        <svg class="app-footer-logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.5"/>
+          <rect x="28" y="17" width="18" height="14" rx="5" stroke="#4A9BB8" stroke-width="2.5"/>
+          <path d="M20 24h8" stroke="#4A9BB8" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="11" cy="24" r="3.5" fill="rgba(74,155,184,0.5)"/>
+          <circle cx="11" cy="24" r="1.5" fill="#4A9BB8"/>
+          <circle cx="37" cy="24" r="3.5" fill="rgba(74,155,184,0.5)"/>
+          <circle cx="37" cy="24" r="1.5" fill="#4A9BB8"/>
+          <path d="M24 11 Q31 7 38 11" stroke="#C9A96E" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.9"/>
+        </svg>
+        <span class="app-footer-wordmark">Safe<em>Sight</em></span>
+      </a>
+      
+      <p class="app-footer-copyright">
+        © 2024 SafeSight. All rights reserved.
+      </p>
+
+      <ul class="app-footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#terms">Terms</a></li>
+        <li><a href="#support">Support</a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+
+<div id="toast"></div>
+
+<!-- Core -->
+<script src="js/toast.js"></script>
+<script src="js/components.js"></script>
+<script src="js/router.js"></script>
+
+<!-- User panels -->
+<script src="js/panels/user/dashboard.js"></script>
+<script src="js/panels/user/howto.js"></script>
+<script src="js/panels/user/setup.js"></script>
+<script src="js/panels/user/navigation.js"></script>
+<script src="js/panels/user/safety.js"></script>
+<script src="js/panels/user/contacts.js"></script>
+<script src="js/panels/user/accessibility.js"></script>
+
+<!-- Caregiver panels -->
+<script src="js/panels/caregiver/dashboard.js"></script>
+<script src="js/panels/caregiver/tracking.js"></script>
+<script src="js/panels/caregiver/alerts.js"></script>
+<script src="js/panels/caregiver/safezones.js"></script>
+<script src="js/panels/caregiver/history.js"></script>
+<script src="js/panels/caregiver/settings.js"></script>
+
+<!-- App entry point — must be last -->
+<script src="js/app.js"></script>
+
+</body>
+</html>
